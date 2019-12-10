@@ -6,18 +6,15 @@ using namespace testing;
 
 TEST(ADD,basicAdd)
 {
-    srand(0);
-    for(int i=0; i<100; i++)
-    {
-        int num1 = rand();
-        int num2 = rand();
-        int result = num1 + num2;
+    ASSERT_THAT(Add("1","2"), Eq("3"));
+    ASSERT_THAT(Add("100","100"), Eq("200"));
+    ASSERT_THAT(Add("-100","50"), Eq("-50"));
+    ASSERT_THAT(Add("-100","-100"), Eq("-200"));
+}
 
-        std::string snum1 = std::to_string(num1);
-        std::string snum2 = std::to_string(num2);
-        std::string sresult = Add(snum1, snum2);
-        ASSERT_THAT(sresult, Eq(std::to_string(result)));
-    }
+TEST(ADD,AddBigNumber)
+{
+    ASSERT_THAT(Add("1234567887654321","8765432112345678"), "9999999999999999");
 }
 int main(int argc, char **argv)
 {
