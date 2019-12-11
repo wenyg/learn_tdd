@@ -48,7 +48,17 @@ std::string Add(std::string n1, std::string n2)
 
     for(int i=0; i < max.length(); i++)
     {
-        int sum = char2int(max[i]) + char2int(min[i]) + char2int(carry[i]);
+        int num1 = char2int(max[i]);
+        if(num1 < 0 || num1 > 9)
+        {
+            return "ERROR";
+        }
+        int num2 = char2int(min[i]);
+        if(num2 < 0 || num2 > 9)
+        {
+            return "ERROR";
+        }
+        int sum = num1 + num2 + char2int(carry[i]);
         if (sum >= 10)
         {
             result[i] = int2char(sum - 10);
