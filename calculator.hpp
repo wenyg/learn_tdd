@@ -59,5 +59,9 @@ std::string Add(std::string n1, std::string n2)
         }
     }
     std::reverse(result.begin(),result.end());
+    if(result[0] == '0')
+    {
+        result = result.substr(1);
+    }
     return result;
 }
