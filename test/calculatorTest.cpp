@@ -28,6 +28,12 @@ TEST(ADD,AddSuperBigNumber)
 
     ASSERT_THAT(Add(num1.str(),num2.str()), Eq(result.str()));
 }
+
+TEST(ADD,AddInvalidNumber)
+{
+    ASSERT_THAT(Add("1234","fsdf"),Eq("ERROR"));
+}
+
 int main(int argc, char **argv)
 {
     testing::InitGoogleMock(&argc, argv);
